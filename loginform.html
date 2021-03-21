@@ -1,0 +1,217 @@
+<html>
+    <head>
+    
+    
+        <style>
+             input[type=password],input[type=name],input[type=Date],input[type="text"],
+            input[type=number],input[type=submit]
+
+           
+
+           input
+            {
+                margin:3px;
+                height:30px;
+                width:200px;
+            }
+
+#message {
+    display:none;
+    background: f1f1f1;
+    color:cornflowerblue;
+    position : relative;
+    padding:20px;
+    margin-top:10px;
+}
+#message p {
+    padding :10px;
+    font-size: 18px;
+}
+.valid {
+    color:green;
+
+}
+.valid:before  {
+    position: relative;
+    left: -35px;
+    content: right;
+}
+.invalid {
+    color :red;
+}
+.invalid:before {
+    position: relative;
+    left:-35px;
+    content: wrong;
+}
+            
+        </style>
+        <title>Registartion Form</title>
+</head>
+<body>
+        <center>
+            <h1 style="margin-bottom: 0px;">
+	
+             Create an Account 
+             </h1>
+            </center>
+    
+    <center>
+        <form style="width :500px";>
+        <label for="Email Id"> <b>Email Id</b></label>
+        <br>
+        <input type="text" placeholder="Enter  Email Id" name="Email Id" required>
+        <br>
+        
+        <label for="Password"> <b>Password</b></label>
+        <br>
+
+         <input type="password" id="myInput" placeholder="Password" name="Password" pattern="(?=.\d) (?=.*[a-z]) (?=.*[A-Z] .{8}"
+         title="Must contain at least one number and uppercase and lowercase letter, 
+         and at least 8 or more characters" required >
+         <div id="message">
+             <h3>Password must contain the following:</h3>
+             <p id="letter" class="invalid">A<b>lowercase</b> letter</p>
+             <p id="capital" class="invalid">A<b>capital (uppercase)</b> letter </p>
+             <p id="number" class="invalid">A<b>number</b></p>
+             <p id="letter" class="invalid">Minimum<b>8characters</b></p>
+         </div>
+         <script>
+             var myInput= document.getElementById("psw");
+             var letter= document.getElementById("letter");
+             var capital=documement.getElementById("capital");
+             var number=document.getElementById("number");
+             var length=documentgetElementById("length");
+             myInput.onfocus = function() {
+                 documentgetElementById("message").style.display = "block";
+             }
+             myInput.onblur= function(){
+                 document.getElementById("message").style.display ="none";
+             }
+             myInput.onkeyup=function(){
+                 //validate lowercase letter
+                 var lowercaseLetters = /[a-z]/g;
+                 if(myInpuut.value.match(lowerCaseLetters)){
+                     letter.classList.remove("invalid");
+                     letter.classList.add("valid");
+                 }else{
+                     letter.classList.remove("valid");
+                 letter.classList.add("invalid");
+             }
+             // validate capital letters
+             var uppercaseletters =  /[a-z]/g;
+                 if(myInpuut.value.match(upperCaseLetters)){
+                     capital.classList.remove("invalid");
+                     capital.classList.add("valid");
+                 }else{
+                     capital.classList.remove("valid");
+                 capital.classList.add("invalid");
+                }
+                //validate numbers
+                var numbers = /[0-9]/g;
+                 if(myInpuut.value.match(numbers)){
+                     number.classList.remove("invalid");
+                     number.classList.add("valid");
+                 }else{
+                     number.classList.remove("valid");
+                 number.classList.add("invalid");
+             }
+             //validate length
+              if(myInpuut.value.length>=8){
+                     length.classList.remove("invalid");
+                     length.classList.add("valid");
+                 }else{
+                     length.classList.remove("valid");
+                 length.classList.add("invalid");
+             }
+            }
+ </script>
+ <br>
+         <input type="checkbox" onclick="myFunction()">show Password
+         <script>
+             function myFunction(){
+                 var x= document.getElementById("myInput");
+                 if(x.type === "password") {
+                     x.type ="text";
+                 } else {
+                     x.type ="password";
+                 }
+
+                 }
+                
+             
+         </script>
+         
+
+         
+       
+       
+         <br>
+         <label for="Name"> <b>Name</b></label>
+         <br>
+        <input type="text" placeholder="Name" name="Name" required>
+        <br>
+        <label for="DOB"> <b>DOB</b></label>
+        <br>
+        <input type="date" placeholder="DOB" name="DOB" required>
+        <br>
+        <label for="Mobile No."> <b>Mobile No.</b></label>
+            <br>
+            <input type="number" placeholder="Mobile No." name="Mobile No." required>
+            <br>
+            <label for="Gender"> <b>Gender </b></label>
+            <br>
+            
+            <input type="radio" id="Male" name="Gender" value="Male">
+            <label for="Male">Male</label>
+            
+            <input type="radio" id="Female" name="Gender" value="Female">
+            <label for="Female">Female</label>
+            <br>
+            <br>
+            
+        <label for="Select Your Course"><b>Select Your Course</b></label>
+        
+        <select id="Courses">
+            
+            <option>BTECH</option>
+            <option>BBA</option>
+            <option>BCA</option>
+            <option>B.COM</option>
+            <option>MBA</option>
+            <option>MTECH</option>
+            <option>MCA</option>
+        </select>
+        <br>
+        <br>
+    
+        <label for="Colleges"><b>Colleges</b></label>
+        
+        <select id="College">
+            <option>RGPV Bhopal</option>
+            <option>Mahakal institute of technology</option>
+            <option>Ujjain Engineering College</option>
+            <option>Acropolis Institute of Technology</option>
+            <option>AISECT College</option>
+            <option>DAVV College</option>
+            <option>SAGE University</option>
+        </select>
+        <br>
+        <br>
+        <label for="Address"> <b>Address</b></label>
+        <br>
+        <input type="text" placeholder="Address" name="Address" required>
+        <br>
+        <label for="Country"><b>Country</b></label>
+        <br>
+        <input type="text" placeholder="Country" name="Country" required>
+        <br>
+        <label for="ZIP Code"><b>ZIP Code</b></label>
+        <br>
+        <input type="text" placeholder="ZIP Code" name="ZIP Code" required>
+        <br>
+<input  style= "background-color:dodgerblue;font-weight:800"; type="submit" >
+    </form>
+    </center>
+ </body>   
+</html>
